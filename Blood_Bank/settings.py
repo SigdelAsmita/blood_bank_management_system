@@ -47,10 +47,8 @@ INSTALLED_APPS = [
     # 'bank.apps.BankConfig',
     # 'users.apps.UsersConfig',
     'crispy_forms',
-    # 'crispy_bootstrap4'
+    'crispy_bootstrap4'
 ]
-
-# CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -145,3 +143,4 @@ LOGIN_REDIRECT_URL = 'bank-home'
 
 LOGIN_URL ='login' # this directs to login page is user asks for profile when logged out
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

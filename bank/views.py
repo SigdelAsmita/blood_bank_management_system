@@ -1,11 +1,12 @@
 from django.shortcuts import render 
-from .models import Post
+from .models import *
+from users.models import *
 
 #handle routes
 
 def home(request):
     context ={
-        'posts': Post.objects.all()
+        'posts': BankPost.objects.all()
     }
     return render(request, 'bank/home.html',context)
 
