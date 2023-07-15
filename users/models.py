@@ -33,7 +33,7 @@ class BloodBank(models.Model):
     blood_bank_name = models.CharField(max_length=50, blank=True, null=True)
     address = models.CharField(max_length=50, blank=True, null=True)
     phone_number = models.CharField(blank=True, null=True)
-
+    image=models.ImageField(upload_to='')
     class Meta:
         db_table = 'blood_bank'
 

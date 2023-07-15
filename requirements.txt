@@ -3,4 +3,5 @@ psycopg2
 django-environ
 django-bootstrap
 django-crispy-forms
-django-crispy-bootstrap4
+django-crispy-bootstrap
+pillow

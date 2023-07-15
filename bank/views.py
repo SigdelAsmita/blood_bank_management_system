@@ -13,3 +13,7 @@ def home(request):
 def about(request):
     return render (request, 'bank/about.html', {'title': 'About'})
 
+def bloodbank(request):
+    cards=[]
+    blood_bank_list=BloodBank.objects.all()
+    return render(request, 'bank/bloodbank.html', context={"blood_bank":blood_bank_list, 'title':'BloodBanks'})

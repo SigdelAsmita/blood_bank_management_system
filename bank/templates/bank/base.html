@@ -31,6 +31,7 @@
               <div class="navbar-nav mr-auto">
                 <a class="nav-item nav-link" href="{% url 'bank-home' %}">Home</a>
                 <a class="nav-item nav-link" href="{% url 'bank-about' %}">About</a>
+                <a class="nav-item nav-link" href="{% url 'bank-bloodbank' %}">BloodBanks</a>
               </div>
               <!-- Navbar Right Side -->
               <div class="navbar-nav">
@@ -40,6 +41,7 @@
                 {% else %} 
                   <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
                   <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                  
                 {% endif %}
                 </div>
 

@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     # 'bank.apps.BankConfig',
     # 'users.apps.UsersConfig',
     'crispy_forms',
-    'crispy_bootstrap4'
+    'crispy_bootstrap'
 ]
 
 MIDDLEWARE = [
@@ -131,8 +131,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS=[os.path.join(BASE_DIR,"static")]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # full path to directory where uploaded files are to be saved
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images') # full path to directory where uploaded files are to be saved
 MEDIA_URL ='/media/' # public url of this directoryyy
 
 # Default primary key field type
@@ -143,4 +144,4 @@ LOGIN_REDIRECT_URL = 'bank-home'
 
 LOGIN_URL ='login' # this directs to login page is user asks for profile when logged out
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap'
