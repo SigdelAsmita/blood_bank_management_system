@@ -7,7 +7,7 @@ class Person(models.Model):
     national_id = models.BigIntegerField(primary_key=True)
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=50)
-    phone_number = models.CharField()
+    phone_number = models.CharField(max_length=50, null=True, blank=True)
     blood_group = models.TextField()  # This field type is a guess.
     user = models.OneToOneField(User, on_delete= models.CASCADE)
     image = models.ImageField(default= 'default.jpg', upload_to='profile_pics')
@@ -22,7 +22,7 @@ class Person(models.Model):
 class Relationship(models.Model):
     person1 = models.OneToOneField(Person, models.DO_NOTHING, primary_key=True)  # The composite primary key (person1_id, person2_id) found, that is not supported. The first column is selected.
     person2 = models.ForeignKey(Person, models.DO_NOTHING, related_name='relationship_person2_set')
-    relation = models.CharField(blank=True, null=True)
+    relation = models.CharField(blank=True, null=True,max_length=50)
 
     class Meta:
         db_table = 'relationship'
@@ -32,7 +32,8 @@ class BloodBank(models.Model):
     bank_id = models.AutoField(primary_key=True)
     blood_bank_name = models.CharField(max_length=50, blank=True, null=True)
     address = models.CharField(max_length=50, blank=True, null=True)
-    phone_number = models.CharField(blank=True, null=True)
+    phone_number = models.CharField(max_length=50,blank=True, null=True)
+    # phone_number = models.CharField(max_length=50, null =False)
     image=models.ImageField(upload_to='')
     class Meta:
         db_table = 'blood_bank'
