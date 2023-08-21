@@ -24,7 +24,7 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
           <div class="container">
-            <a class="navbar-brand mr-4" href="{% url 'bank-home' %}">Blood Bank Management System</a>
+            <a class="navbar-brand mr-auto" href="{% url 'bank-home' %}">Blood Bank Management System</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,6 +34,17 @@
                 <a class="nav-item nav-link" href="{% url 'bank-about' %}">About</a>
                 <a class="nav-item nav-link" href="{% url 'bank-bloodbank' %}">BloodBanks</a>
               </div>
+              <form class="d-flex" method=POST
+              action="{% url 'bank-search' %}">
+                {% csrf_token %}
+                <input class ="form-control me-2" 
+                type ="search" placeholder ="Search" 
+                aria-label="Search" name ="searched" >
+                <button class="btn btn-outline-danger"
+                type="submit">Search</button>
+
+
+              </form>
               <!-- Navbar Right Side -->
               <div class="navbar-nav">
                 {% if user.is_authenticated %}

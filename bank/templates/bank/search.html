@@ -1,0 +1,16 @@
+{% extends "bank/base.html" %}
+{% block content %}
+    <center>
+        {% if searched %}
+            <h1>You Searched For {{ searched }}</h1>
+            <br/>
+            {% for bank in banks %}
+                {{ bank.blood_bank_name }} - {{ bank.address }}
+                <br/>
+            {% endfor %}
+        {% else %}
+            <h1>Please enter something to search...</h1>
+        {% endif %}
+
+    </center>
+{% endblock content %}
