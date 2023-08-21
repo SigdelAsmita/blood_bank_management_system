@@ -4,9 +4,26 @@
         {% if searched %}
             <h1>You Searched For {{ searched }}</h1>
             <br/>
-            {% for bank in banks %}
-                {{ bank.blood_bank_name }} - {{ bank.address }}
-                <br/>
+            {% for card in bank %}
+            {#  Single Card Template:#}
+            <div class="card text-dark border-dark" style="width:18rem; margin:10px;">
+                <img src="{{ MEDIA_URL }} {{ card.image.url }}" class="card-img-top" height="150px" width="150px">
+                <div class="card-body">
+                    <style>
+                        .card-title {
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                    </style>      
+                    <div style="display: flex; flex-direction: row" >
+                        <h5 class="card-title text-danger">{{ card.blood_bank_name }}</h5>
+                    </div>
+                    <p class="card-subtitle">{{ card.address }}</p>
+                    <p class="card-text">{{ card.phone_number }}</p>
+                    <a href="#" class="btn btn-danger">Visit Website</a>
+                </div>
+            </div>
             {% endfor %}
         {% else %}
             <h1>Please enter something to search...</h1>
@@ -14,3 +31,4 @@
 
     </center>
 {% endblock content %}
+

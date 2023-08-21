@@ -1,6 +1,7 @@
 from django.shortcuts import render 
 from .models import *
 from users.models import *
+from django.db.models import Q
 
 #handle routes
 
@@ -21,7 +22,7 @@ def bloodbank(request):
 def search(request):
     if request.method =="POST":
         searched = request.POST['searched']
-        banks = BloodBank.objects.filter(blood_bank_name__contains= searched)
-        return render (request, 'bank/search.html', {'title': 'Search','searched':searched, 'banks': banks})
+        banks = BloodBank.objects.filter(Q(blood_bank_name__icontains= searched)).distinct()
+        return render (request, 'bank/search.html', context={'title': 'Search','searched':searched, "bank": banks})
     else:
         return render (request, 'bank/search.html', {'title': 'Search'})
