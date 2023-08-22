@@ -13,103 +13,263 @@ def add_blood_banks(apps, schema_editor):
             'address': 'Maharajgunj, Kathmandu',
             'phone_number': '44123030, 4410911',
             'image': 'static/images/Teaching.jpg',
+            'website': 'https://www.tuth.org.np/'
         },
          {
             'blood_bank_name': 'Lalitpur NRCS Blood Bank',
             'address': 'Pulchowk',
             'phone_number': '+97715427033',
             'image': 'static/images/NRCSLalitpur.jpg',
+            'website': 'https://www.nrcs.org/redcross_location/lalitpur-district-chapter/'
         },
         {
             'blood_bank_name': 'Bhaktapur NRCS Blood Bank',
             'address': 'Bhaktapur',
             'phone_number': '6611661, 6612266',
             'image': 'static/images/BhaktapurNRCS.jpg',
+            'website': 'https://www.nrcs.org/redcross_location/bhaktapur-district-chapter/'
         },
          {
             'blood_bank_name': 'Central NRCS Blood Bank',
             'address': 'Soaltee-Mod',
             'phone_number': '4288485',
             'image': 'static/images/CentralNRCS.jpg',
+            'website': 'https://www.nrcs.org/donate-blood/'
         },
         {
             'blood_bank_name': 'Frontline Hospital Blood Bank',
             'address': 'Old Baneshwor',
             'phone_number': '5970132',
             'image': 'static/images/Frontline.jpg',
+            'website': 'https://www.google.com/'
         },
          {
             'blood_bank_name': 'Gangalal Hospital',
             'address': 'Bansbari, Kathmandu',
             'phone_number': '4371322',
             'image': 'static/images/Gangalal.jpg',
+            'website': 'https://www.sgnhc.org.np/'
         },
         {
             'blood_bank_name': 'Himal Hospital',
             'address': 'Gyaneshwor, Kathmandu',
             'phone_number': '9862737316',
             'image': 'static/images/Himal.jpg',
+            'website': 'https://www.himalhospital.com/'
         },
          {
             'blood_bank_name': 'Grande Hospital',
             'address': 'Dhapasi',
             'phone_number': '5159266',
             'image': 'static/images/Grande.jpg',
+            'website': 'https://www.grandehospital.com/'
         },
         {
             'blood_bank_name': 'Prasuti Griha',
             'address': 'Thapathali, Kathmandu',
             'phone_number': '4260405',
             'image': 'static/images/PrasutiGriha.jpg',
+            'website': 'https://www.pmwh.gov.np/'
         },
          {
             'blood_bank_name': 'Nepal Mediciti Hospital',
             'address': 'Nakhkhu Ukalo, Lalitpur',
             'phone_number': '4217766',
             'image': 'static/images/Mediciti.jpg',
+            'website': 'https://www.nepalmediciti.com/'
         },
         {
             'blood_bank_name': 'Bir Hospital',
             'address': 'New road gate, Kathmandu',
             'phone_number': '4221119, 4221988',
             'image': 'static/images/Bir.jpg',
+            'website': 'https://www.birhospital.gov.np/en'
         },
          {
             'blood_bank_name': 'Nepal Police Hospital',
             'address': 'Maharajgunj, Kathmandu',
             'phone_number': '4412430',
             'image': 'static/images/NepalPolice.jpg',
+            'website': 'https://www.nph.nepalpolice.gov.np/'
         },
         {
             'blood_bank_name': 'Civil Hospital',
             'address': 'Minbhawan, Kathmandu',
             'phone_number': '4107000',
             'image': 'static/images/Civil.jpg',
+            'website': 'https://www.csh.gov.np/en/'
         },
          {
             'blood_bank_name': 'Patan Hospital',
             'address': 'Patan, Lalitpur',
             'phone_number': '5522295',
             'image': 'static/images/Patan.jpg',
+            'website': 'https://www.pahs.edu.np/pahs-community/hospital/'
         },
         {
             'blood_bank_name': 'Birendra Army Hospital',
             'address': 'Kathmandu',
             'phone_number': '4271941',
             'image': 'static/images/Birendra.jpg',
+            'website': 'https://www.birendrahospital.nepalarmy.mil.np/'
         },
          {
             'blood_bank_name': 'Nepal Medical College',
             'address': 'Gokarneswor, Kathmandu',
             'phone_number': '4911008',
             'image': 'static/images/NepalMedical.jpg',
+            'website': 'https://www.nmcth.edu/'
         },
         {
             'blood_bank_name': 'Kathmandu Medical College and Teaching Hospital',
             'address': 'Shinamangal, Kathmandu',
             'phone_number': '4469064',
             'image': 'static/images/KathmanduMedical.jpg',
-        }
+            'website': 'https://www.kmc.edu.np/'
+        },
+    ]
+    for data in blood_banks:
+        image_path = data.pop('image')
+        with open (image_path, 'rb') as image_file:
+            data['image'] = File(image_file)
+            BloodBank.objects.create(**data)
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('users', '0003_alter_person_phone_number'),
+    ]
+
+    operations = [
+        migrations.RunPython(add_blood_banks)
+    ]
+
+
+
+
+def events(apps, schema_editor):
+    BloodBank = apps.get_model('users', 'BloodBank')
+
+    events =[
+        {
+            'blood_bank_name': 'Teaching Hospital',
+            'address': 'Maharajgunj, Kathmandu',
+            'phone_number': '44123030, 4410911',
+            'image': 'static/images/Teaching.jpg',
+            'website': 'https://www.tuth.org.np/'
+        },
+         {
+            'blood_bank_name': 'Lalitpur NRCS Blood Bank',
+            'address': 'Pulchowk',
+            'phone_number': '+97715427033',
+            'image': 'static/images/NRCSLalitpur.jpg',
+            'website': 'https://www.nrcs.org/redcross_location/lalitpur-district-chapter/'
+        },
+        {
+            'blood_bank_name': 'Bhaktapur NRCS Blood Bank',
+            'address': 'Bhaktapur',
+            'phone_number': '6611661, 6612266',
+            'image': 'static/images/BhaktapurNRCS.jpg',
+            'website': 'https://www.nrcs.org/redcross_location/bhaktapur-district-chapter/'
+        },
+         {
+            'blood_bank_name': 'Central NRCS Blood Bank',
+            'address': 'Soaltee-Mod',
+            'phone_number': '4288485',
+            'image': 'static/images/CentralNRCS.jpg',
+            'website': 'https://www.nrcs.org/donate-blood/'
+        },
+        {
+            'blood_bank_name': 'Frontline Hospital Blood Bank',
+            'address': 'Old Baneshwor',
+            'phone_number': '5970132',
+            'image': 'static/images/Frontline.jpg',
+            'website': 'https://www.google.com/'
+        },
+         {
+            'blood_bank_name': 'Gangalal Hospital',
+            'address': 'Bansbari, Kathmandu',
+            'phone_number': '4371322',
+            'image': 'static/images/Gangalal.jpg',
+            'website': 'https://www.sgnhc.org.np/'
+        },
+        {
+            'blood_bank_name': 'Himal Hospital',
+            'address': 'Gyaneshwor, Kathmandu',
+            'phone_number': '9862737316',
+            'image': 'static/images/Himal.jpg',
+            'website': 'https://www.himalhospital.com/'
+        },
+         {
+            'blood_bank_name': 'Grande Hospital',
+            'address': 'Dhapasi',
+            'phone_number': '5159266',
+            'image': 'static/images/Grande.jpg',
+            'website': 'https://www.grandehospital.com/'
+        },
+        {
+            'blood_bank_name': 'Prasuti Griha',
+            'address': 'Thapathali, Kathmandu',
+            'phone_number': '4260405',
+            'image': 'static/images/PrasutiGriha.jpg',
+            'website': 'https://www.pmwh.gov.np/'
+        },
+         {
+            'blood_bank_name': 'Nepal Mediciti Hospital',
+            'address': 'Nakhkhu Ukalo, Lalitpur',
+            'phone_number': '4217766',
+            'image': 'static/images/Mediciti.jpg',
+            'website': 'https://www.nepalmediciti.com/'
+        },
+        {
+            'blood_bank_name': 'Bir Hospital',
+            'address': 'New road gate, Kathmandu',
+            'phone_number': '4221119, 4221988',
+            'image': 'static/images/Bir.jpg',
+            'website': 'https://www.birhospital.gov.np/en'
+        },
+         {
+            'blood_bank_name': 'Nepal Police Hospital',
+            'address': 'Maharajgunj, Kathmandu',
+            'phone_number': '4412430',
+            'image': 'static/images/NepalPolice.jpg',
+            'website': 'https://www.nph.nepalpolice.gov.np/'
+        },
+        {
+            'blood_bank_name': 'Civil Hospital',
+            'address': 'Minbhawan, Kathmandu',
+            'phone_number': '4107000',
+            'image': 'static/images/Civil.jpg',
+            'website': 'https://www.csh.gov.np/en/'
+        },
+         {
+            'blood_bank_name': 'Patan Hospital',
+            'address': 'Patan, Lalitpur',
+            'phone_number': '5522295',
+            'image': 'static/images/Patan.jpg',
+            'website': 'https://www.pahs.edu.np/pahs-community/hospital/'
+        },
+        {
+            'blood_bank_name': 'Birendra Army Hospital',
+            'address': 'Kathmandu',
+            'phone_number': '4271941',
+            'image': 'static/images/Birendra.jpg',
+            'website': 'https://www.birendrahospital.nepalarmy.mil.np/'
+        },
+         {
+            'blood_bank_name': 'Nepal Medical College',
+            'address': 'Gokarneswor, Kathmandu',
+            'phone_number': '4911008',
+            'image': 'static/images/NepalMedical.jpg',
+            'website': 'https://www.nmcth.edu/'
+        },
+        {
+            'blood_bank_name': 'Kathmandu Medical College and Teaching Hospital',
+            'address': 'Shinamangal, Kathmandu',
+            'phone_number': '4469064',
+            'image': 'static/images/KathmanduMedical.jpg',
+            'website': 'https://www.kmc.edu.np/'
+        },
     ]
     for data in blood_banks:
         image_path = data.pop('image')

@@ -26,3 +26,9 @@ def search(request):
         return render (request, 'bank/search.html', context={'title': 'Search','searched':searched, "bank": banks})
     else:
         return render (request, 'bank/search.html', {'title': 'Search'})
+
+def donate(request):
+    return render (request, 'bank/donate.html', {'title': 'Donate'})
+
+def request(request):
+    return render (request, 'bank/request.html', {'title': 'Request'})

@@ -15,16 +15,16 @@
 
 
     {% if title %}
-        <title>System - {{ title }}</title>
+        <title>VitalCare - {{ title }}</title>
     {% else %} 
-        <title>Blood Bank Management System</title>
+        <title>VitalCare</title>
     {% endif %} 
 </head>
 <body>
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
           <div class="container">
-            <a class="navbar-brand mr-auto" href="{% url 'bank-home' %}">Blood Bank Management System</a>
+            <a class="navbar-brand mr-auto" href="{% url 'bank-home' %}">VitalCare</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -33,7 +33,24 @@
                 <a class="nav-item nav-link" href="{% url 'bank-home' %}">Home</a>
                 <a class="nav-item nav-link" href="{% url 'bank-about' %}">About</a>
                 <a class="nav-item nav-link" href="{% url 'bank-bloodbank' %}">BloodBanks</a>
+                
               </div>
+              <form class="d-flex" method=POST
+              action="{% url 'bank-donate' %}">
+                {% csrf_token %}
+                <button class="btn btn-outline-danger"
+                type="submit"style ="color:whitesmoke; border-color: whitesmoke;">Donate</button>
+                <div style="margin-left: 10px;"></div> 
+              </form>
+
+              <form class="d-flex" method=POST
+              action="{% url 'bank-request' %}">
+                {% csrf_token %}
+                <button class="btn btn-outline-danger"
+                type="submit"style ="color:whitesmoke; border-color: whitesmoke;">Request</button>
+                <div style="margin-left: 10px;"></div> 
+              </form>
+
               <form class="d-flex" method=POST
               action="{% url 'bank-search' %}">
                 {% csrf_token %}
@@ -41,7 +58,7 @@
                 type ="search" placeholder ="Search" 
                 aria-label="Search" name ="searched" >
                 <button class="btn btn-outline-danger"
-                type="submit">Search</button>
+                type="submit" style ="color:whitesmoke; border-color: whitesmoke;">Search</button>
 
 
               </form>
@@ -63,7 +80,7 @@
       </header>
 
 
-      <main role="main" class="container">
+     <main role="main" class="container">
         <div class="row">
           <div class="col-md-8">
             {% if messages %}
@@ -75,7 +92,7 @@
             {% endif %}
             {% block content %}{% endblock %}
           </div>
-          <div class="col-md-4">
+          <!-- <div class="col-md-4">
             <div class="content-section">
               <h3>Our Sidebar</h3>
               <p class='text-muted'>You can put any information here you'd like.
@@ -86,11 +103,11 @@
                   <li class="list-group-item list-group-item-light">etc</li>
                 </ul>
               </p>
-            </div>
-          </div>
+            </div> 
+          </div>-->
         </div>
-      </main>
-    
+      </main> 
+       
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

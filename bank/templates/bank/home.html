@@ -1,15 +1,29 @@
 {% extends "bank/base.html" %}
 {% block content %}
-    {% for post in posts %}
-        <article class="media content-section">
-            <div class="media-body">
-            <div class="article-metadata">
-                <a class="mr-2" href="#">{{ post.author }}</a>
-                <small class="text-muted">{{ post.date_posted|date:"YY - MM- DD" }}</small>
-            </div>
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
-            </div>
-        </article>
-    {% endfor %}
+    <br>
+
+    
+    <!-- <style>
+        body
+        { 
+            background-image: url('static/images/Background.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 75%;
+            opacity: 0.65; 
+        }
+     </style> -->
+    
+    <div>
+        
+        <img src="static/images/Background.jpg" height="350px" width = 1200>
+       
+    </div> 
+    <!-- <div>
+        <h1>At the Heart of Humanity, We Stand Together</h1>
+    </div>  -->
+    <br>
+    
 {% endblock content %}
+
+

@@ -23,3 +23,23 @@ def register(request):
 @login_required
 def profile(request):
     return render(request, 'users/profile.html')
+
+
+def donate(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid(): 
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Your account has been created. You can now login!')
+            form.save()
+            return redirect ('login')
+        
+    else:
+        form = UserRegisterForm()
+    
+    return render(request,'users/donate.html',{'form':form})
+
+
+@login_required
+def profile(request):
+    return render(request, 'users/profile.html')

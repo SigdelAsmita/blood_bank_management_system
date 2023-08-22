@@ -33,7 +33,7 @@ class BloodBank(models.Model):
     blood_bank_name = models.CharField(max_length=50, blank=True, null=True)
     address = models.CharField(max_length=50, blank=True, null=True)
     phone_number = models.CharField(max_length=50,blank=True, null=True)
-    # phone_number = models.CharField(max_length=50, null =False)
+    website = models.URLField(max_length=100, null=True, blank=True)
     image=models.ImageField(upload_to='')
     class Meta:
         db_table = 'blood_bank'
@@ -102,3 +102,5 @@ class BankPost(models.Model):
   
     def __str__(self):
         return self.title
+    
+

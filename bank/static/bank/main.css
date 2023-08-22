@@ -1,7 +1,7 @@
 body {
   background: #fafafa;
   color: #333333;
-  margin-top: 5rem;
+  margin-top: 4rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -33,7 +33,7 @@ ul {
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .article-title {
@@ -52,7 +52,7 @@ a.article-title:hover {
 .article-img {
   height: 65px;
   width: 65px;
-  margin-right: 16px;
+  margin-right: 1px;
 }
 
 .article-metadata {
@@ -75,10 +75,11 @@ a.article-title:hover {
 .account-img {
   height: 125px;
   width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
+  margin-right: 2px;
+  margin-bottom: 1px;
 }
 
 .account-heading {
   font-size: 2.5rem;
 }
+
