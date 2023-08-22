@@ -38,6 +38,16 @@ class BloodBank(models.Model):
     class Meta:
         db_table = 'blood_bank'
 
+class Events(models.Model):
+    event_id = models.AutoField(primary_key=True)
+    event_date = models.CharField(max_length=50, blank=True, null=True)
+    address = models.CharField(max_length=50, blank=True, null=True)
+    event_time = models.CharField(max_length=50, blank=True, null=True)
+    beneficiary = models.CharField(max_length=50,blank=True, null=True)
+    image=models.ImageField(upload_to='')
+    class Meta:
+        db_table = 'events'
+
 class Blood(models.Model):
     blood_id = models.BigIntegerField(primary_key=True)
     bank = models.ForeignKey('BloodBank', models.DO_NOTHING, blank=True, null=True)

@@ -19,6 +19,12 @@ def bloodbank(request):
     blood_bank_list=BloodBank.objects.all()
     return render(request, 'bank/bloodbank.html', context={"blood_bank":blood_bank_list, 'title':'BloodBanks'})
 
+
+def events(request):
+    cards=[]
+    event_list=Events.objects.all()
+    return render(request, 'bank/events.html', context={"event":event_list, 'title':'Events'})
+
 def search(request):
     if request.method =="POST":
         searched = request.POST['searched']
