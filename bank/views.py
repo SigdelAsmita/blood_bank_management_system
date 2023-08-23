@@ -3,9 +3,10 @@ from .models import *
 from users.models import *
 from django.db.models import Q
 from django.shortcuts import render, redirect
+from users.forms import DonateForm
+from users.forms import RequestForm
 
-
-#handle routes
+#Handle routes
 
 def home(request):
     context ={
@@ -24,8 +25,8 @@ def bloodbank(request):
 
 def event(request):
     cards=[]
-    event_list=Events.objects.all()
-    return render(request, 'bank/events.html', context={"event":event_list, 'title':'Events'})
+    event_list=Event.objects.all()
+    return render(request, 'bank/event.html', context={"event":event_list, 'title':'Events'})
 
 def search(request):
     if request.method =="POST":
@@ -37,25 +38,24 @@ def search(request):
 
 def donate(request):
     if request.method =='POST':
-        form = donate(request.POST)
-        if form.is_valid:
+        form = DonateForm(request.POST)
+        if form.is_valid():
             form.save()
             return redirect('thanks')
     else:
-            form = donate()
-
-    return render(request, "donate.html", {'form': form})
+        form = DonateForm()
+    return render(request, 'bank/donate.html', {'form': form})
 
 def request(request):
     if request.method =='POST':
-        form = request(request.POST)
-        if form.is_valid:
+        form = RequestForm(request.POST)
+        if form.is_valid():
             form.save()
             return redirect('requestProcess')
     else:
-            form = request()
+        form = RequestForm()
 
-    return render(request, "request.html", {'form': form})
+    return render(request, 'bank/request.html', {'form': form})
 
 def thanks(request):
     return render (request, 'bank/thanks.html', {'title': 'Thanks'})

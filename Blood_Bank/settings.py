@@ -100,7 +100,7 @@ WSGI_APPLICATION = 'Blood_Bank.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': "trryinggg",
+        'NAME': "Blood_Management",
         'USER': "postgres",
         'PASSWORD': "postgres",
         'HOST': "localhost",

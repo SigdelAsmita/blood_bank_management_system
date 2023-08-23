@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django import forms
 
-
 # Create your models here.
 
 class Person(models.Model):
@@ -30,6 +29,7 @@ class Relationship(models.Model):
         db_table = 'relationship'
         unique_together = (('person1', 'person2'),)
 
+
 class BloodBank(models.Model):
     bank_id = models.AutoField(primary_key=True)
     blood_bank_name = models.CharField(max_length=50, blank=True, null=True)
@@ -40,7 +40,8 @@ class BloodBank(models.Model):
     class Meta:
         db_table = 'blood_bank'
 
-class Events(models.Model):
+
+class Event(models.Model):
     event_id = models.AutoField(primary_key=True)
     event_date = models.CharField(max_length=50, blank=True, null=True)
     address = models.CharField(max_length=50, blank=True, null=True)
@@ -49,6 +50,7 @@ class Events(models.Model):
     image=models.ImageField(upload_to='')
     class Meta:
         db_table = 'event'
+
 
 class Blood(models.Model):
     blood_id = models.BigIntegerField(primary_key=True)
@@ -61,6 +63,7 @@ class Blood(models.Model):
     class Meta:
         db_table = 'blood'
 
+
 class Reception(models.Model):
     receiver = models.OneToOneField(Person, models.DO_NOTHING, primary_key=True)  # The composite primary key (receiver_id, blood_id) found, that is not supported. The first column is selected.
     blood = models.ForeignKey(Blood, models.DO_NOTHING)
@@ -72,15 +75,17 @@ class Reception(models.Model):
         db_table = 'reception'
         unique_together = (('receiver', 'blood'),)
 
+
 class Diseases(models.Model):
     national = models.OneToOneField('Person', models.DO_NOTHING, primary_key=True)  # The composite primary key (national_id, disease_name) found, that is not supported. The first column is selected.
     disease_name = models.CharField(max_length=20)
-    from_field = models.DateField(db_column='from_date', blank=True, null=True)  # Field renamed because it ended with '_'.
-    to_field = models.DateField(db_column='to_date', blank=True, null=True)  # Field renamed because it ended with '_'.
+    from_field = models.DateField(db_column='from_date', blank=True, null=True)  
+    to_field = models.DateField(db_column='to_date', blank=True, null=True) 
 
     class Meta:
         db_table = 'diseases'
         unique_together = (('national', 'disease_name'),)
+
 
 class Immunizations(models.Model):
     national = models.OneToOneField('Person', models.DO_NOTHING, primary_key=True)  # The composite primary key (national_id, vaccine_name) found, that is not supported. The first column is selected.
@@ -90,6 +95,7 @@ class Immunizations(models.Model):
     class Meta:
         db_table = 'immunizations'
         unique_together = (('national', 'vaccine_name'),)
+
 
 class Surgeries(models.Model):
     national = models.OneToOneField('Person', models.DO_NOTHING, primary_key=True)  # The composite primary key (national_id, surgery_name) found, that is not supported. The first column is selected.
@@ -114,5 +120,40 @@ class BankPost(models.Model):
   
     def __str__(self):
         return self.title
-    
 
+
+class Donate(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.TextField()
+    blood_group = models.CharField(max_length=3, choices=[
+        ('A+', 'A+'),
+        ('A-', 'A-'),
+        ('B+', 'B+'),
+        ('B-', 'B-'),
+        ('AB+', 'AB+'),
+        ('AB-', 'AB-'),
+        ('O+', 'O+'),
+        ('O-', 'O-'),
+    ])
+    medication = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name
+    
+class Request(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.TextField()
+    blood_group = models.CharField(max_length=3, choices=[
+        ('A+', 'A+'),
+        ('A-', 'A-'),
+        ('B+', 'B+'),
+        ('B-', 'B-'),
+        ('AB+', 'AB+'),
+        ('AB-', 'AB-'),
+        ('O+', 'O+'),
+        ('O-', 'O-'),
+    ])
+    medication = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name

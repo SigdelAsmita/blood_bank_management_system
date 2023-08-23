@@ -4,4 +4,4 @@ from .models import *
 
 admin.site.register(Person)
 admin.site.register(BloodBank)
-admin.site.register(Events)
+admin.site.register(Event)

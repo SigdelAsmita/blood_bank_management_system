@@ -6,11 +6,7 @@
         {% for card in event_list %}
         {#  Single Card Template:#}
         <div class="card text-dark border-dark" style="width:18rem; margin:10px;">
-          <!-- {{ card|pprint }} -->
-
-          <!-- <img src="/media/" class="card-img-top" height="150px" width="150px"> -->
           <img src="{{ MEDIA_URL }} {{ card.image.url }}" class="card-img-top" height="150px" width="150px">
-          <!-- <img src="{{ MEDIA_URL }} " class="card-img-top" height="150px" width="150px"> -->
           <div class="card-body">
             <style>
               .card-title {
