@@ -152,36 +152,36 @@ def add_events(apps, schema_editor):
 
     events =[
         {
-            'address': 'Phulbari',
             'event_date': 'Jul 16, 2023',
+            'address': 'Phulbari',
             'event_time': 'Starts from 7:00 AM',
             'beneficiary': 'Pokhara Regional Blood Bank',
             'image': 'static/images/Phulbari.jpg',
         },
         {
-            'address': 'Mahendrapul',
             'event_date': 'Jul 15, 2023',
+            'address': 'Mahendrapul',
             'event_time': 'Starts from 7:00 AM',
             'beneficiary': 'Pokhara Regional Blood Bank',
             'image': 'static/images/Mahendrapul.jpg',
         },
         {
-            'address': 'Pulchowk',
             'event_date': 'Jul 15, 2023',
+            'address': 'Pulchowk',
             'event_time': 'Starts from 11:00 AM to 2:00 PM',
             'beneficiary': 'Red Cross - Lalitpur',
             'image': 'static/images/Pulchowk.jpg',
         },
         {
-            'address': 'Dhapakhel',
             'event_date': 'Jul 15, 2023',
+            'address': 'Dhapakhel',
             'event_time': 'Starts from 10:00 AM to 2:00 PM',
             'beneficiary': 'Red Cross - Lalitpur',
             'image': 'static/images/Dhapakhel.jpg',
         },
         {
-            'address': 'Lagankhel',
             'event_date': 'Jul 15, 2023',
+            'address': 'Lagankhel',
             'event_time': 'Starts from 11:00 AM to 2:00 PM',
             'beneficiary': 'Red Cross - Lalitpur',
             'image': 'static/images/Lagankhel.jpg',

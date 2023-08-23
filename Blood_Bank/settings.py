@@ -144,6 +144,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR,"static")]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images') # full path to directory where uploaded files are to be saved
 MEDIA_URL ='/media/' # public url of this directoryyy

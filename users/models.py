@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django import forms
+
 
 # Create your models here.
 
@@ -46,7 +48,7 @@ class Events(models.Model):
     beneficiary = models.CharField(max_length=50,blank=True, null=True)
     image=models.ImageField(upload_to='')
     class Meta:
-        db_table = 'events'
+        db_table = 'event'
 
 class Blood(models.Model):
     blood_id = models.BigIntegerField(primary_key=True)

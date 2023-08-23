@@ -1,0 +1,31 @@
+{% extends "bank/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <br>
+    
+    <style>
+        body
+        { 
+            background-color: rgb(206, 178, 178);
+            /* background-image: url('/static/images/Thanks.jpg'); */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 80% 100%;
+            background-position: center top 50px;
+            opacity: 0.9; 
+        }
+        .button-at-bottom {
+            position: fixed;
+            bottom: 40px;
+            right: 200px;
+        }
+    </style> 
+    <div class = "button-at-bottom">
+        <a class ="btn btn-outline-info"  href="/" style = "color:black;
+        background-color:rgb(217, 171, 171)"
+         >Return to Home page </a>
+    </div>
+    <br>
+    
+{% endblock content %}
+
