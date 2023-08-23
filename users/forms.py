@@ -15,9 +15,6 @@ class DonateForm(forms.ModelForm):
     class Meta:
         model = Donate 
         fields = ['name', 'address', 'blood_group', 'medication']
-    widgets = {
-        'address': forms.TextInput(attrs={'class': 'form-control', 'style': 'width: 300px; height: 30px;'}),
-    }
 
     
 class RequestForm(forms.ModelForm):

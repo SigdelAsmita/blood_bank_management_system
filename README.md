@@ -1,4 +1,4 @@
-# Blood Bank Management System
+# VitalCare
 
 This project is developed as part of our DBMS course in the 5th semester. The goal of this project is to create a web-based application that facilitates efficient management of blood donation and distribution within a blood bank.
 
@@ -12,22 +12,20 @@ This project is developed as part of our DBMS course in the 5th semester. The go
 
 ## About
 
-The Blood Bank Management System provides a platform for blood banks to manage their donor information, blood inventory, and blood requests. It aims to streamline the blood donation process, ensure proper inventory control, and facilitate timely distribution of blood to hospitals in need.
+The Blood Bank Management System provides a platform for blood banks to manage their donor information, blood inventory, and blood requests. It aims to streamline the blood donation process, and facilitate timely distribution of blood to hospitals in need.
 
 ## Features
 
 - **Donor Registration:** Allow donors to register and provide their personal information.
 - **Blood Donation:** Record blood donation details including blood type, donation date, and health status.
 - **Donor Database:** Maintain a centralized database of donors with their contact information.
-- **Blood Inventory:** Track blood units in the inventory, including type and expiration dates.
 - **Blood Requests:** Hospitals can place requests for specific blood types.
 
 ## Technologies Used
 
-- **Frontend:** HTML, CSS, JavaScript
+- **Frontend:** HTML, CSS
 - **Backend:** Django (Python Web Framework)
 - **Database:** PostgreSQL
-- **Hosting:** Heroku
 
 ## Getting Started
 

@@ -1,6 +1,6 @@
 {% extends "bank/base.html" %}
 {% block content %}
-<center>
+
         {% if searched %}
             <h1>You Searched For {{ searched }}</h1>
             <div style="display: flex; flex-direction: row; 
@@ -29,6 +29,5 @@
             {% else %}
                 <h1>Please enter something to search...</h1>
         {% endif %}
-    </center>
 {% endblock content %}
 
