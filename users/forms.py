@@ -54,5 +54,5 @@ class RequestForm(forms.ModelForm):
     blood_group = forms.ChoiceField(choices= blood_group_choices, required = True)
     medication = forms.CharField(required=False)
     class Meta:
-        model = 'request_form'
+        model = 'request'
         fields = ['name', 'address', 'blood_group','medication']

@@ -37,23 +37,23 @@ def search(request):
 
 def donate(request):
     if request.method =='POST':
-        form = DonateForm(request.POST)
+        form = donate(request.POST)
         if form.is_valid:
             form.save()
             return redirect('thanks')
     else:
-            form = DonateForm()
+            form = donate()
 
     return render(request, "donate.html", {'form': form})
 
 def request(request):
     if request.method =='POST':
-        form = RequestForm(request.POST)
+        form = request(request.POST)
         if form.is_valid:
             form.save()
             return redirect('requestProcess')
     else:
-            form = RequestForm()
+            form = request()
 
     return render(request, "request.html", {'form': form})
 
