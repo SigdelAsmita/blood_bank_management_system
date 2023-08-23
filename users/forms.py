@@ -18,6 +18,7 @@ class DonateForm(forms.ModelForm):
     widgets = {
         'address': forms.TextInput(attrs={'class': 'form-control', 'style': 'width: 300px; height: 30px;'}),
     }
+
     
 class RequestForm(forms.ModelForm):
     class Meta:

@@ -1,9 +1,8 @@
-{% extends "bank/base.html" %}
+ {% extends "bank/base.html" %}
 {% block content %}
     <h1>Events</h1>
     <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content:space-around;">
-  
-        {% for card in event_list %}
+        {% for card in event %}
         {#  Single Card Template:#}
         <div class="card text-dark border-dark" style="width:18rem; margin:10px;">
           <img src="{{ MEDIA_URL }} {{ card.image.url }}" class="card-img-top" height="150px" width="150px">
@@ -24,5 +23,5 @@
             </div>
         </div>
         {% endfor %}
-      </div>
-{% endblock content %}
+      </div> 
+{% endblock content %} 

@@ -1,9 +1,10 @@
 {% extends "bank/base.html" %}
 {% block content %}
-    <center>
+<center>
         {% if searched %}
             <h1>You Searched For {{ searched }}</h1>
-            <br/>
+            <div style="display: flex; flex-direction: row; 
+            flex-wrap: wrap; justify-content:space-around;"></div>
             {% for card in bank %}
             {#  Single Card Template:#}
             <div class="card text-dark border-dark" style="width:18rem; margin:10px;">
@@ -21,12 +22,12 @@
                     </div>
                     <p class="card-subtitle">{{ card.address }}</p>
                     <p class="card-text">{{ card.phone_number }}</p>
-                    <!-- <a href="{{ card.bank_website }}" class="btn btn-danger">Visit Website</a> -->
+                    <a href="{{ card.website }}" class="btn btn-danger">Visit Website</a>
+                    </div>
                 </div>
-            </div>
-            {% endfor %}
-        {% else %}
-            <h1>Please enter something to search...</h1>
+                {% endfor %}
+            {% else %}
+                <h1>Please enter something to search...</h1>
         {% endif %}
     </center>
 {% endblock content %}

@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 from users.forms import DonateForm
 from users.forms import RequestForm
 
+
 #Handle routes
 
 def home(request):
@@ -41,7 +42,7 @@ def donate(request):
         form = DonateForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('thanks')
+            return redirect('bank-thanks')
     else:
         form = DonateForm()
     return render(request, 'bank/donate.html', {'form': form})
@@ -51,10 +52,9 @@ def request(request):
         form = RequestForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('requestProcess')
+            return redirect('bank-requestProcess')
     else:
         form = RequestForm()
-
     return render(request, 'bank/request.html', {'form': form})
 
 def thanks(request):
@@ -62,3 +62,4 @@ def thanks(request):
 
 def requestProcess(request):
     return render (request, 'bank/requestProcess.html', {'title': 'requestProcess'})
+
