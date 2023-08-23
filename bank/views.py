@@ -38,3 +38,6 @@ def donate(request):
 
 def request(request):
     return render (request, 'bank/request.html', {'title': 'Request'})
+
+def visitwebsite(request):
+    return render (request, 'card')
