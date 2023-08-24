@@ -2,22 +2,26 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <style>
-        body
-        { 
-            background-image: url('static/images/Background.jpg');
+        body{
+            background-image: url('static/images/Background.png');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: 100% 100%;
-            opacity: 0.65; 
+    
         }
-        .button-at-bottom {
-            position: fixed;
-            bottom: 90px;
-            right: 550px;
-        }
-    </style> 
+    </style>
+    <div class="home-page-content">
+    <h1 class="anim">Donate Blood,<br>
+    Save Lives </h1>
+    <p class="anim">VitalCare is a cutting-edge Blood Donation Management System that bridges the gap between blood donors 
+        and recipients, all while prioritizing the health and safety of both parties. Now let's educate ourselves 
+    on the importance of blood donation.</p>
+    <a href="#" class="btn btn-outline-danger anim">Blog</a>
+    </div>
+
+
     <div class = "button-at-bottom">
-        <a class ="btn btn-outline-info" href="/events/">Blood Donation Events</a>
+        <a class ="btn btn-outline-danger" href="/events/">Blood Donation Events</a>
     </div>
     <br>
 {% endblock content %}

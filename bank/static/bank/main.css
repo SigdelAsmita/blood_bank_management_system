@@ -1,8 +1,15 @@
 body 
 {
-  background: #fafafa;
+  background: #f3e3e3 ;
+  background-image: url('static/images/bgtest6.png');
   color: #333333;
   margin-top: 4rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0px;
+  display: none;
 }
 
 h1, h2, h3, h4, h5, h6 
@@ -116,4 +123,46 @@ a.article-title:hover
   bottom: auto;
   left: auto; 
 }
+
+.home-page-content
+{
+  margin-top: 10%;
+  max-width: 600%;
+}
+
+.home-page-content h1{
+  font-size: 60px;
+}
+
+.home-page-content p{
+  margin: 10px 0 30px;
+  animation-delay: 0.5s;
+  font-size:20px;
+
+}
+
+.home-page-content .btn{
+  animation-delay: 1s ;
+}
+
+.anim{
+  opacity:0;
+  transform:translateY(30px);
+  animation: moveup 0.5s linear forwards;
+}
+@keyframes moveup{
+  100%{
+    opacity: 1;
+    transform:translateY(0px);
+  }
+}
+
+.button-at-bottom {
+    position: fixed;
+    bottom: 90px;
+    right: 550px;
+}
+
+
+
 
