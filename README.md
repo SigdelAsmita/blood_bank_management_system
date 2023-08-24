@@ -2,6 +2,12 @@
 
 This project is developed as part of our DBMS course in the 5th semester. The goal of this project is to create a web-based application that facilitates efficient management of blood donation and distribution within a blood bank.
 
+<p align="center">
+  <img src="https://github.com/SigdelAsmita/blood_bank_management_system/blob/main/assets/HomePage.png" alt="HomePage" width="70%">
+</p>
+
+
+
 ## Table of Contents
 
 - [About](#about)
