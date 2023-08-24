@@ -119,10 +119,13 @@ a.article-title:hover
 
 .button-at-bottom 
 {
-  position: absolute;
-  bottom: auto;
-  left: auto; 
-}
+  position:fixed;
+  /* bottom: 90px;
+  right:550px;
+   */
+   bottom: 90px;
+  right:45%;
+} 
 
 .home-page-content
 {
@@ -157,12 +160,11 @@ a.article-title:hover
   }
 }
 
-.button-at-bottom {
-    position: fixed;
-    bottom: 90px;
-    right: 550px;
-}
-
+/* .button-at-bottom {
+    position: absolute;
+    bottom: auto;
+    right: auto;
+}  */
 
 #form button {
   background-color: #d9534f;
