@@ -14,11 +14,11 @@ class UserRegisterForm(UserCreationForm):
 class DonateForm(forms.ModelForm):
     class Meta:
         model = Donate 
-        fields = ['name', 'address', 'blood_group', 'medication']
+        fields = ['name', 'address', 'blood_group', 'condition']
 
     
 class RequestForm(forms.ModelForm):
     class Meta:
         model = Request
-        fields = ['name', 'address', 'blood_group', 'medication']
+        fields = ['name', 'address', 'blood_group', 'condition']
 

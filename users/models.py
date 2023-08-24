@@ -122,10 +122,10 @@ class BankPost(models.Model):
         return self.title
 
 
-class Donate(models.Model):
-    name = models.CharField(max_length=100)
-    address = models.TextField()
-    blood_group = models.CharField(max_length=3, choices=[
+class Request(models.Model):
+    name = models.CharField(null=True, max_length=100)
+    address = models.CharField(null=True, max_length=100)
+    blood_group = models.CharField(null=True, max_length=3, choices=[
         ('A+', 'A+'),
         ('A-', 'A-'),
         ('B+', 'B+'),
@@ -135,15 +135,27 @@ class Donate(models.Model):
         ('O+', 'O+'),
         ('O-', 'O-'),
     ])
-    medication = models.TextField(blank=True)
+
+    CONDITION_CHOICES = [
+        ('cr', "HIV Positive"),
+        ('cr', "Hepatitis B"),
+        ('cr', "Hepatitis C"),
+        ('cr', "Active Tuberculosis"),
+        ('cr', "Recent Organ Transplant"),
+        ('cr', "Severe Anemia"),
+        ('r', "None")
+    ]
+    
+
+    condition = models.CharField(blank=True, max_length=50, choices=CONDITION_CHOICES)
 
     def __str__(self):
         return self.name
     
-class Request(models.Model):
-    name = models.CharField(max_length=100)
-    address = models.TextField()
-    blood_group = models.CharField(max_length=3, choices=[
+class Donate(models.Model):
+    name = models.CharField(null=True, max_length=100)
+    address = models.CharField(null=True, max_length=100)
+    blood_group = models.CharField(null=True, max_length=3, choices=[
         ('A+', 'A+'),
         ('A-', 'A-'),
         ('B+', 'B+'),
@@ -153,7 +165,28 @@ class Request(models.Model):
         ('O+', 'O+'),
         ('O-', 'O-'),
     ])
-    medication = models.TextField(blank=True)
+    
+    CONDITION_CHOICES = [
+        ('cdn', "Aids"),
+        ('cdn', "Cancer"),
+        ('cdn', "Colitis"),
+        ('cdn', "Colostomy"),
+        ('cdn', "Dementia"),
+        ('cdn', "Drug Abuse"),
+        ('cdn', "Emphysema"),
+        ('cdn', "Filariasis"),
+        ('cdn', "Genital Herpes"),
+        ('cdn', "Gonorrhea/Syphilis"),
+        ('cdn', "Gout"),
+        ('cdn', "Leprosy"),
+        ('cdn', "Malaria (within 3 years after recovery)"),
+        ('cdn', "Prostate"),
+        ('cdn', "Stroke"),
+        ('cdn', "Syphilis"),
+        ('dn', "None")
+    ]
+    
+    condition = models.CharField(blank=True, max_length=50, choices=CONDITION_CHOICES)
 
     def __str__(self):
         return self.name

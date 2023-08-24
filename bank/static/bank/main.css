@@ -164,5 +164,13 @@ a.article-title:hover
 }
 
 
+#form button {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
 
 
