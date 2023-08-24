@@ -1,9 +1,8 @@
 body 
 {
   background: #f3e3e3 ;
-  background-image: url('static/images/bgtest6.png');
   color: #333333;
-  margin-top: 4rem;
+  margin-top: 6rem;
 }
 
 /* width */
@@ -16,6 +15,7 @@ h1, h2, h3, h4, h5, h6
 {
   color: #444444;
 }
+
 
 ul 
 {
@@ -172,6 +172,15 @@ a.article-title:hover
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
+}
+
+
+a{
+  color:#d9534f;
+}
+
+a:hover{
+  color:red;
 }
 
 

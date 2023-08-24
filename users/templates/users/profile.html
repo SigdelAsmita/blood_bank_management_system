@@ -2,5 +2,8 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <h2>You have logged in as {{ user.username }}</h2>
+    <h1>Welcome to VitalCare, {{ user.username }}</h1>
+    <h4>Start by exploring our Donate and Request features.</h4>
+    <div style="margin-bottom: 100px;"></div>
+    <h5>You are logged in as:</h5><h6>{{user.email}} </h6>
 {% endblock content %}

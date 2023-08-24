@@ -20,6 +20,7 @@ class Person(models.Model):
         return f'{self.user.username} Profile'
 
 
+
 class Relationship(models.Model):
     person1 = models.OneToOneField(Person, models.DO_NOTHING, primary_key=True)  # The composite primary key (person1_id, person2_id) found, that is not supported. The first column is selected.
     person2 = models.ForeignKey(Person, models.DO_NOTHING, related_name='relationship_person2_set')

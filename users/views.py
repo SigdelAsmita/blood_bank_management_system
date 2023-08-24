@@ -9,9 +9,10 @@ from .forms import RequestForm
 
 def register(request):
     if request.method == 'POST':
-        form = RequestForm(request.POST)
+        form = UserRegisterForm(request.POST)
         if form.is_valid(): 
             username = form.cleaned_data.get('username')
+            email=form.cleaned_data.get('email')
             messages.success(request, f'Your account has been created. You can now login!')
             form.save()
             return redirect ('login')
@@ -31,17 +32,14 @@ def profile(request):
 #     if request.method == 'POST':
 #         form = DonateForm(request.POST)
 #         if form.is_valid(): 
-#             username = form.cleaned_data.get('username')
-#             messages.success(request, f'Your donation request has been submitted.')
+#             condition = form.cleaned_data.get('condition')
+#             blood_group=form.cleaned_data.get('blood_group')
 #             form.save()
 #             return redirect ('thanks')       
 #     else:
 #         form = DonateForm()
 #     return render(request,'users/donate.html',{'form':form})
 
-# @login_required
-# def profile(request):
-#     return render(request, 'users/profile.html')
 
 
 # def request(request):
