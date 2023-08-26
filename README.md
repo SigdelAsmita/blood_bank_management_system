@@ -39,8 +39,8 @@ To run the Blood Bank Management System locally on your machine, follow these st
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/blood-bank-management.git
-   cd blood-bank-management
+   git clone https://github.com/SigdelAsmita/blood-bank-management-system.git
+   cd blood-bank-management-system
 2. Install project dependencies:
    ```bash
    pip install -r requirements.txt
